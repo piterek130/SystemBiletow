@@ -1,0 +1,77 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Movie 1",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "title": "Movie 2",
+      "description": "Description 1",
+      "duration": 120
+    }
+
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "date": "2024-05-10",
+      "startTime": "20:00",
+      "endTime": "22:00",
+      "hall": 1
+    },
+    {
+      "id": 2,
+      "movieId": 2,
+      "date": "2024-05-10",
+      "startTime": "20:00",
+      "endTime": "22:00",
+      "hall": 1
+    }
+  ]
+}
