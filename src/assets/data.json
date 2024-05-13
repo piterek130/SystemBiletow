@@ -2,59 +2,86 @@
   "movies": [
     {
       "id": 1,
-      "title": "Movie 1",
-      "description": "Description 1",
-      "duration": 120
+      "title": "KUNG FU PANDA 4",
+      "description": "Po ostatnich niebezpiecznych przygodach, w których pokonał światowej klasy złoczyńców dzięki swojej niezrównanej odwadze i szalonym umiejętnościom sztuk walki, PO, Smoczy Wojownik zostaje wezwany przez przeznaczenie, aby... dać sobie już spokój. A dokładniej, ma zostać duchowym przywódcą Doliny Spokoju. Wiąże się z tym kilka oczywistych problemów. Po pierwsze, PO wie tyle samo o duchowym przywództwie, co o diecie paleo, a po drugie, musi szybko znaleźć i wyszkolić nowego Smoczego Wojownika, zanim będzie mógł objąć swoje nowe stanowisko. Co gorsza, do gry wkracza czarodziejka-Kameleona, maleńka jaszczurka, która może zmieniać kształt w dowolne stworzenie, duże lub małe. PO będzie potrzebował pomocy. Znajdzie ją u bystrej lisicy Zhen, której umiejętności okażą się nieocenione. W dążeniu do ochrony Doliny Spokoju przed Kameleoną, ten komediowy duet będzie musiał współpracować. PO odkryje, że przyjaciół można znaleźć w najbardziej nieoczekiwanych",
+      "duration": 94,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/kung-fu-panda-4/kung-fu-panda-4-plakat-online-cut.jpg?h=477&w=319",
+      "trailerUrl": "https://www.youtube.com/embed/_inKs4eeHiI?si=1mY9jRmskSmSZSex",
+      "genres": ["Animowany"]
     },
     {
       "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "title": "GARFIELD",
+      "description": "Garfield jest najbardziej znanym kotem na świecie. Jest leniuchem, który uwielbia lasagne i nie cierpi poniedziałków. Po nieoczekiwanym spotkaniu ze swoim dawno zaginionym ojcem – niechlujnym ulicznym kotem Vicem– Garfield i jego psi przyjaciel Odie zmuszeni są porzucić swoje doskonałe leniwe życie i dołączyć do Vica w zabawnym napadzie.",
+      "duration": 101,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/garfield/garfiled-plakat.jpg",
+      "genres": ["Animowany"]
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 3,
+      "title": "W GŁOWIE SIĘ NIE MIEŚCI 2",
+      "description": "Wyprodukowany przez Disneya i Pixara film „W głowie się nie mieści 2” to powrót do umysłu Riley, obecnie świeżo upieczonej nastolatki. Centrala sterowania przechodzi gruntowny remont, bo pojawiły się nowe Emocje! Radość, Smutek, Złość, Strach i Odraza, które dotąd z powodzeniem kierowały całym przedsięwzięciem, z pewnym wahaniem witają nowego przybysza: Niepewność.",
+      "duration": 100,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/w-glowie-sie-nie-miesci-2/w-glowie-plakat-net-cut.jpg",
+      "genres": ["Animowany"]
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 4,
+      "title": "GRU I MINIONKI: POD PRZYKRYWKĄ",
+      "description": "W tym roku 5 lipca, zobaczymy nowy rozdział, w którym Gru i Lucy oraz ich córeczki: - Margo , Edith i Agnes powitają nowego członka rodziny Gru juniora. Gru będzie musiał zmierzyć się z nowym nemezis w postaci Maxime'a Le Mala i jego femme fatale, Valentiny.",
+      "duration": 111,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/gru-i-minionki-pod-przykrywka/minionki-i-gru-plakat-zastepczy.jpg",
+      "genres": ["Dramat"]
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 5,
+      "title": "DIUNA: CZĘŚĆ DRUGA",
+      "description": "Część druga ukazuje imponującą podróż Paula Atrydy, który zawiera sojusz z Chani i Fremenami. Jednocześnie wkracza na wojenną ścieżkę, pałając żądzą zemsty na spiskowcach, którzy doprowadzili do upadku jego rodziny. Stając przed wyborem między miłością życia a losem znanego wszechświata, Paul pragnie zapobiec tragicznej przyszłości, którą tylko on potrafi przewidzieć.",
+      "duration": 166,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/diuna-czesc-druga/diuna2_plakat-final-cut.jpg"
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 6,
+      "title": "GODZILLA I KONG: NOWE IMPERIUM",
+      "description": "Walka gigantów trwa!. Potężny Kong i przeraźliwy Godzilla są zmuszeni stawić czoło kolosalnemu, nieodkrytemu zagrożeniu, kryjącemu się w naszym świecie. Stawia ono pod znakiem zapytania istnienie potworów… oraz nasze. Godzilla i Kong: Nowe imperium dokładniej zgłębia historię tych tytanów oraz ich początki, jak również tajemnice Wyspy Czaszki i nie tylko. Jednocześnie ukazuje mityczną batalię, która przyczyniła się do powstania tych niezwykłych istot i związania ich losu z ludzkością już na zawsze.",
+      "duration": 113,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/godzilla-i-kong-nowe-imperium/godzilla-kong-plakat-final-cut.jpg"
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 7,
+      "title": "ISTOTY FANTASTYCZNE",
+      "description": "To historia dziewczynki, która odkrywa, że może zobaczyć wyimaginowanych przyjaciół wszystkich, których zna. Co robi z tą supermocą? Wyruszy w magiczną przygodę, aby połączyć zapomniane Istoty fantastyczne z tymi dla których są ważne. W filmie występują Cailey Fleming, Ryan Reynolds, John Krasinski, Fiona Shaw oraz głosów użyczają: Phoebe Waller Bridge, Louis Gossett Jr. i Steve Carell, a także wiele innych postaci, które odzwierciedlają niesamowitą moc dziecięcej wyobraźni.",
+      "duration": 108,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/istoty-fantastyczne/istoty-fantastyczne-plakat-online-cut.jpg"
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 8,
+      "title": "KASKADER",
+      "description": "Bohater filmu jest kaskaderem i jak każdy w tym zawodzie, zdarza się, że zostanie wysadzony w powietrze, że zostanie postrzelony i wyrzucony przez okno oraz zrzucony z wysokości, a wszystko to dla naszej rozrywki. Teraz, po prawie kończącym karierę wypadku, nasz bohater musi odnaleźć zaginioną gwiazdę filmową, rozwiązać spisek i spróbować odzyskać miłość swojego życia, wciąż wykonując swoją codzienną pracę. Co może się wydarzyć?",
+      "duration": 127,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/kaskader/kaskader-plakat-online-cut.jpg"
     },
     {
-      "id": 2,
-      "title": "Movie 2",
-      "description": "Description 1",
-      "duration": 120
+      "id": 9,
+      "title": "KRÓLESTWO PLANETY MAŁP",
+      "description": "W świecie zdominowanym przez żyjące w harmonii małpy ludzie zostali zepchnięci na margines. Gdy nowy przywódca małp buduje swoje imperium, młody samiec wyrusza w niezwykle trudną podróż, która zmieni jego dotychczasowe wyobrażenie o przeszłości, a nowe decyzje wpłyną na przyszłość zarówno małp jak i ludzi.",
+      "duration": 145,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/krolestwo-planety-malp/planeta-plakat-net-cut.jpg"
+    },
+    {
+      "id": 10,
+      "title": "MÓJ PIES ARTUR",
+      "description": "Miłośnik sportu i adrenaliny Michael Light (Mark Wahlberg) staje przed największym wyzwaniem w dotychczasowej karierze. Wraz z trzyosobową ekipą zaufanych zawodników przystępuje do Mistrzostw Świata w Rajdach Przygodowych na Dominikanie. Stając na starcie ekstremalnych zmagań, w czasie których – przez 10 dni – pieszo, kajakami i na rowerze będzie musiał pokonać prawie 700 kilometrów, Light nie przypuszcza, że wkrótce jego zespół rozrośnie się o dodatkowego członka. Będzie nim jedyny w swoim rodzaju, bohaterski pies – Artur. Połączeni nierozerwalną więzią człowiek i wierny czworonóg rzucą wyzwanie dżungli, falom, przepaściom i ograniczeniom własnych organizmów. To co wspólnie osiągną, napisze niebywałą historię, która poruszy i zachwyci cały świat.",
+      "duration": 97,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/moj-pies-artur/moj-pies-artur_plakat_cut.jpg"
+    },
+    {
+      "id": 10,
+      "title": "MÓJ PIES ARTUR",
+      "description": "Miłośnik sportu i adrenaliny Michael Light (Mark Wahlberg) staje przed największym wyzwaniem w dotychczasowej karierze. Wraz z trzyosobową ekipą zaufanych zawodników przystępuje do Mistrzostw Świata w Rajdach Przygodowych na Dominikanie. Stając na starcie ekstremalnych zmagań, w czasie których – przez 10 dni – pieszo, kajakami i na rowerze będzie musiał pokonać prawie 700 kilometrów, Light nie przypuszcza, że wkrótce jego zespół rozrośnie się o dodatkowego członka. Będzie nim jedyny w swoim rodzaju, bohaterski pies – Artur. Połączeni nierozerwalną więzią człowiek i wierny czworonóg rzucą wyzwanie dżungli, falom, przepaściom i ograniczeniom własnych organizmów. To co wspólnie osiągną, napisze niebywałą historię, która poruszy i zachwyci cały świat.",
+      "duration": 97,
+      "imageUrl": "https://multikino.pl/-/media/images/film-and-events/2024/moj-pies-artur/moj-pies-artur_plakat_cut.jpg"
     }
-
   ],
   "sessions": [
     {
