@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/*body {*/
+/*  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); !* Przykładowy gradient *!*/
+/*  min-height: 100vh; !* Zapewnia, że tło pokryje całą wysokość widoku *!*/
+/*  width: 100vw; !* Zapewnia, że tło pokryje całą szerokość widoku *!*/
+/*  color: white; !* Ustawia białe kolorowanie tekstu dla lepszej czytelności *!*/
+/*}*/
+
+body{
+  background: #121212; /* Ciemne tło */
+  background: radial-gradient(circle, rgba(58,58,58,1) 0%, rgba(18,18,18,1) 100%); /* Subtelny gradient */
+  /*min-height: 100vh;*/
+  /*width: 100vw;*/
+  color: white;
+}
