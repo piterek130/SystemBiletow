@@ -4,55 +4,64 @@
       "id": 1,
       "title": "Movie 1",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
       "id": 2,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "Movie 2",
       "description": "Description 1",
-      "duration": 120
+      "duration": 120,
+      "price": 19.99
     }
 
   ],
@@ -63,7 +72,7 @@
       "date": "2024-05-10",
       "startTime": "20:00",
       "endTime": "22:00",
-      "hall": 1
+      "hallId": 1
     },
     {
       "id": 2,
@@ -71,7 +80,43 @@
       "date": "2024-05-10",
       "startTime": "20:00",
       "endTime": "22:00",
-      "hall": 1
+      "hallId": 2
+    }
+  ],
+  "halls": [
+    {
+      "id": 1,
+      "name": "Main Hall",
+      "capacity": 100
+    },
+    {
+      "id": 2,
+      "name": "VIP Hall",
+      "capacity": 50
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "sessionId": 1,
+      "hallId": 1,
+      "seatId": 3,
+      "customerId": 501,
+      "bookingTime": "2024-05-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "sessionId": 1,
+      "hallId": 1,
+      "seatId": 4,
+      "customerId": 501,
+      "bookingTime": "2024-05-01T10:00:00Z"
+    }
+  ], 
+  "tickets": [
+    {
+      "id": 1,
+      "bookingsId": [1, 2]
     }
   ]
 }
