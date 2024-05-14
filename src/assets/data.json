@@ -135,7 +135,6 @@
     {
       "id": 1,
       "bookingsId": [1, 2]
-      "hallId": 2
     }
   ],
   "halls": [
