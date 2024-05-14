@@ -4,14 +4,15 @@ import { Movie, Session } from '../../models/movie.model';
 import {CommonModule} from "@angular/common";
 import {CarouselConfig, CarouselModule} from 'ngx-bootstrap/carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {RouterLink} from "@angular/router";
+import {NavigationExtras, Router, RouterLink, RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-repertoire',
   standalone: true,
   imports: [CommonModule,
     CarouselModule,
-    NgbModule, RouterLink],
+    NgbModule, RouterLink, FormsModule, RouterModule],
   templateUrl: './repertoire.component.html',
   styleUrl: './repertoire.component.css',
   providers: [
@@ -23,7 +24,7 @@ export class RepertoireComponent implements OnInit {
   movies: Movie[] = [];
   sessions: Session[] = [];
 
-  constructor(private cinemaService: CinemaService) { }
+  constructor(private cinemaService: CinemaService, private router: Router) { }
 
   async ngOnInit(){
     this.movies = await this.cinemaService.getMovies();
