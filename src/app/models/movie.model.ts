@@ -21,11 +21,26 @@ export interface Session {
   date: string;
   startTime: string;
   endTime: string;
-  hall: number;
+  hallId: number;
 }
 
 export interface Ticket {
   id: number;
+  bookingId: number[];
+}
+
+export interface Hall {
+  id: number;
+  name: String;
+  capacity: number;
+}
+
+export interface Booking {
+  id: number;
   sessionId: number;
-  seatNumbers: number[];
+  capacity: number;
+  hallId: number;
+  seatId: number;
+  customerId: number;
+  bookingTime: String;
 }
