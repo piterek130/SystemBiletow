@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie, Session, Ticket } from '../models/movie.model';
-import {map, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -20,13 +20,24 @@ export class CinemaService {
     // Dodaj więcej biletów
   ];
 
+  private moviesSource = new BehaviorSubject<Movie[]>([]);
+  currentMovies = this.moviesSource.asObservable();
   constructor() {}
-
+  changeMovies(movies: Movie[]) {
+    this.moviesSource.next(movies);
+  }
   async getMovies(): Promise<Movie[]> {
     const response = await fetch('/assets/data.json');
     const data = await response.json();
     return data.movies as Movie[];
   }
+
+  async getMovies1(): Promise<Movie[]> {
+    const response = await fetch('/assets/movies.json');
+    const data = await response.json();
+    return data.movies;
+  }
+
 
   async getSessions(): Promise<Session[]> {
     const response = await fetch('/assets/data.json');

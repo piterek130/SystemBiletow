@@ -5,6 +5,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { TicketManagementComponent } from './components/ticket-management/ticket-management.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component'; // Upewnij się, że zaimportujesz komponent
 import { GenreListComponent } from './components/genre-list/genre-list.component';
+import {SearchedMoviesComponent} from "./components/searched-movies/searched-movies.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/repertoire', pathMatch: 'full' },  // domyślne przekierowanie na repertuar
@@ -12,7 +13,10 @@ export const routes: Routes = [
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'ticket-management', component: TicketManagementComponent },
-  { path: 'genre/:genreName', component: GenreListComponent }
+  { path: 'genre/:genreName', component: GenreListComponent },
+  { path: 'search', component: SearchedMoviesComponent },
+
+
 ];
 
 @NgModule({

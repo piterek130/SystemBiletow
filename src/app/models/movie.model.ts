@@ -11,6 +11,10 @@ export interface Movie {
   production: string;
 }
 
+export interface RouterState {
+  movies?: Movie[];
+}
+
 export interface Session {
   id: number;
   movieId: number;

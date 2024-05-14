@@ -7,6 +7,14 @@
     <div class="movie-details">
       <h2>{{ movie.title }}</h2>
       <p>{{ movie.description }}</p>
+      <a [routerLink]="['/movie', movie.id]">
+        <button class="btn-szczegoly">Szczegóły filmu</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+
 <!--      <div class="movie-genre">-->
 <!--        <a [routerLink]="['/genre', movie.genre]">{{ movie.genre }}</a>-->
 <!--      </div>-->
@@ -16,9 +24,3 @@
 <!--        <p><strong>Reżyseria:</strong> {{ movie.director }}</p>-->
 <!--        <p><strong>Produkcja:</strong> {{ movie.production }}</p>-->
 <!--      </div>-->
-      <a [routerLink]="['/movie', movie.id]">
-        <button class="btn-szczegoly">Szczegóły filmu</button>
-      </a>
-    </div>
-  </div>
-</div>

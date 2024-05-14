@@ -31,5 +31,23 @@
   font-family: "Gill Sans MT", sans-serif;
 }
 
+/* styles.css */
+.search-container {
+  padding: 10px;
+  text-align: center;
+  background-color: #222; /* Ciemne tło */
+  color: white;
+}
+
+.search-container input[type="text"] {
+  padding: 8px;
+  width: 80%;
+  max-width: 550px; /* Ograniczenie szerokości pola */
+  background-color: gray;
+  color: white;
+}
+.search-container input[type="text"]::placeholder {
+  color: darkgray; /* Ciemnoszary kolor placeholdera */
+}
 
 
