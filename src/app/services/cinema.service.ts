@@ -70,5 +70,22 @@ export class CinemaService {
     const response = await fetch('/assets/data.json');
     const data = await response.json();
     return data.bookings as Booking[];
+
+  async getHalls(): Promise<Hall[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.halls as Hall[];
+  }
+
+  async getTickets(): Promise<Ticket[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.tickets as Ticket[];
+  }
+
+  async getBookings(): Promise<Booking[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.bookings as Booking[];
   }
 }
