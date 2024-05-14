@@ -1,12 +1,13 @@
 .movie-container {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #3d3d3d;
   padding: 10px 10px;
   border-radius: 5px;
   color: rgb(63, 60, 60);
-
+  color: white;
+  width: 70%;
 }
 .movie-title {
-  font-size: 40px;
+  font-size: 60px;
   margin: 5px;
   display: flex;
   justify-content: center;
@@ -15,10 +16,10 @@
 .movie-details > p {
   font-size: 20px;
   margin: 2px;
+  color: rgb(144, 142, 142);
 }
 .container {
   perspective: 1000px;
-  margin-bottom: 3px;
   font-family: "Arial", sans-serif;
   display: flex;
   flex-direction: column;
@@ -35,7 +36,7 @@
 }
 
 .seat {
-  background-color: rgb(44, 106, 171);
+  background-color: rgb(81, 144, 215);
   height: 35px;
   width: 40px;
   margin: 4px;
@@ -84,13 +85,14 @@
 }
 
 .showcase {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #3d3d3d;
   padding: 5px 10px;
   border-radius: 5px;
   color: #777;
   list-style-type: none;
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
 .showcase li {
@@ -141,7 +143,7 @@ p.text span {
 .select-tickets-btn {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: rgb(117, 21, 21);
     color: white;
     border: none;
     border-radius: 5px;
@@ -154,5 +156,5 @@ p.text span {
 }
 
 .select-tickets-btn:hover {
-    background-color: #45a049;
+    background-color: rgb(82, 9, 9);
 }

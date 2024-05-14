@@ -2,8 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #222;
+  background-color: #282727;
+  border-top: 1px solid #454545;
   padding: 10px;
+  border-radius: 5px;
 }
 
 .navbar-brand-container {
@@ -20,9 +22,6 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  font-family: "Gill Sans MT", sans-serif;
-
-
 }
 
 .navbar-brand {
@@ -30,8 +29,6 @@
   text-decoration: none;
   font-size: 24px;
   margin-left: 50%;
-  font-family: "Gill Sans MT", sans-serif;
-
 }
 
 .navbar-center input[type="text"] {

@@ -1,12 +1,13 @@
-<div class="movie-container">
-    <div class="movie-details">
-        <p class="hall-name">{{hall?.name}}</p>
-        <p class="movie-time">{{session?.startTime}} {{session?.date}}</p>
-    </div>
-    <p class="movie-title">{{movie?.title}}</p>
-</div>
+
 
 <div class="container">
+    <div class="movie-container">
+        <div class="movie-details">
+            <p class="hall-name">{{hall?.name}}</p>
+            <p class="movie-time">{{session?.startTime}} {{session?.date}}</p>
+        </div>
+        <p class="movie-title">{{movie?.title}}</p>
+    </div>
     <div class="screen">Ekran</div>
     <div *ngFor="let row of seats" class="row">
         <p class="row-label">{{ row.row }}</p>
@@ -18,20 +19,18 @@
             </div>
         </div>
     </div>
+    <ul class="showcase">
+        <li>
+            <div class="seat"></div><small>Wolne</small>
+        </li>
+        <li>
+            <div class="seat selected"></div><small>Wybrane</small>
+        </li>
+        <li>
+            <div class="seat occupied"></div><small>Zajęte</small>
+        </li>
+    </ul>
+    <button class="select-tickets-btn" (click)="proceedToCheckout()">Wybierz bilety</button>
 </div>
-
-<ul class="showcase">
-    <li>
-        <div class="seat"></div><small>Wolne</small>
-    </li>
-    <li>
-        <div class="seat selected"></div><small>Wybrane</small>
-    </li>
-    <li>
-        <div class="seat occupied"></div><small>Zajęte</small>
-    </li>
-</ul>
-
-<button class="select-tickets-btn" (click)="proceedToCheckout()">Wybierz bilety</button>
 
 
