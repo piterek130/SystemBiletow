@@ -18,8 +18,6 @@ export const routes: Routes = [
   { path: 'ticket-management', component: TicketManagementComponent },
   { path: 'genre/:genreName', component: GenreListComponent },
   { path: 'search', component: SearchedMoviesComponent },
-
-,
   { path: 'seat-reservation', component: SeatReservationComponent },
   { path: 'my-tickets', component: MyTicketsComponent }
 ];
