@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie, Session, Ticket } from '../models/movie.model';
+import { Movie, Session, Ticket, Hall, Booking } from '../models/movie.model';
 import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -7,18 +7,6 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class CinemaService {
-  // private movies: Movie[] = [
-  //   { id: 1, title: 'Movie 1', description: 'Description 1', duration: 120 }
-  // ];
-  //
-  // private sessions: Session[] = [
-  //   { id: 1, movieId: 1, date: '2024-05-10', startTime: '20:00', endTime: '22:00', hall: 1 }
-  // ];
-  //
-  private tickets: Ticket[] = [
-    { id: 1, sessionId: 1, seatNumbers: [1, 2, 3] }
-    // Dodaj więcej biletów
-  ];
 
   constructor() {}
 
@@ -33,7 +21,6 @@ export class CinemaService {
     const data = await response.json();
     return data.sessions as Session[];
   }
-
   async getMovieById(id: number): Promise<Movie> {
     const movies = await this.getMovies();
     const movie = movies.find(movie => movie.id === id);
@@ -56,16 +43,22 @@ export class CinemaService {
       return []; // Zwraca pustą tablicę w przypadku błędu
     }
   }
-  // getMovies(): Movie[] {
-  //   console.log(this.movies);
-  //   return this.movies;
-  // }
-  //
-  // getSessions(): Session[] {
-  //   return this.sessions;
-  // }
 
-  getTickets(): Ticket[] {
-    return this.tickets;
+  async getHalls(): Promise<Hall[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.halls as Hall[];
+  }
+
+  async getTickets(): Promise<Ticket[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.tickets as Ticket[];
+  }
+
+  async getBookings(): Promise<Booking[]> {
+    const response = await fetch('/assets/data.json');
+    const data = await response.json();
+    return data.bookings as Booking[];
   }
 }
