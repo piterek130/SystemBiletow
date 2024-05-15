@@ -7,7 +7,7 @@
       <div class="movie-info">
         <h2>{{ movie.title }}</h2>
         <div class="genres">
-          <a *ngFor="let genre of movie.genres" [routerLink]="['/genre', genre]">{{ genre }}</a>
+          <a *ngFor="let genre of movie.genres" [routerLink]="['/genre', genre]">{{ genre }} </a>
         </div>
         <p>{{ movie.description }}</p>
 
