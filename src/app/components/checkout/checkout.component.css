@@ -111,7 +111,7 @@
   
   .form-group input[type="text"],
   .form-group input[type="email"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -120,12 +120,20 @@
   .form-group input[type="checkbox"] {
     margin-right: 10px;
   }
+  .ticket{
+    margin-top: 40px;
+  }
 
   .ticket-code {
     font-size: 24px;
     font-weight: bold;
     color: #e53935;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
   }
+  small {
+    display: block;
+    margin-top: 2px;
+  }
+  
   

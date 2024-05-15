@@ -1,41 +1,23 @@
-<div class="checkout-container">
+<!-- <div class="checkout-container">
 
     <div class="payment-and-details">
 
         <div class="payment-summary">
             <div class="location-details">
-                <div><i class="fas fa-map-marker-alt"></i> WROCŁAW GALERIA MAGNOLIA • SALA 1</div>
-                <div><i class="fas fa-calendar-alt"></i> DZISIAJ, 15 MAJA 2024, 18:00</div>
+                <div><i class="fas fa-map-marker-alt"></i> WROCŁAW GALERIA MAGNOLIA • {{hall?.name}}</div>
+                <div><i class="fas fa-calendar-alt"></i> {{session?.date}}, {{session?.startTime}}</div>
             </div>
-            <h2>Kaskader - Kino Kobiet</h2>
+            <h2>{{movie?.title}}</h2>
             <div *ngFor="let seat of selectedSeats" class="seat-item">
                 <div class="seat-details">
-                    <span class="seat-row">Rząd {{seat}}, Miejsce {{seat}}</span>
-                    <span class="seat-type">Kino Kobiet</span>
-                    <span class="seat-price">PLN {{seat}}</span>
+                    <span class="seat-row">Rząd {{getRow(seat)}}, Miejsce {{getSeatNumber(seat)}}</span>
+                    <span class="seat-type">{{movie?.title}}</span>
+                    <span class="seat-price">PLN {{movie?.price}}</span>
                 </div>
             </div>
-            <div class="ticket-summary">
 
-                <div class="ticket-details">
-
-
-                    <div class="ticket-type">Kino Kobiet x{{selectedSeats.length}}</div>
-                    <div>+ dopłata event kk (9zł / bilet)</div>
-                    <div>+ dopłata internetowa (1.5zł / bilet)</div>
-                </div>
-                <div class="total-price">
-                    <div class="subtotal">89.70 PLN</div>
-                    <div>PLN 27.00</div>
-                    <div>PLN 4.50</div>
-                </div>
-            </div>
             <div class="final-price">
-                RAZEM DO ZAPŁATY: <span>PLN 121.20</span>
-            </div>
-            <div class="login-prompt">
-                <a href="#">Zaloguj się</a> i skorzystaj ze swoich rabatów, które masz przypisane do konta w aplikacji
-                mobilnej
+                RAZEM DO ZAPŁATY: <span>{{getTotal() }} PLN</span>
             </div>
             <button  class="confirm-button" (click)="confirmAndGenerateTicket()">ZATWIERDŹ</button>
             <div class="ticket" *ngIf="ticketGenerated">
@@ -48,34 +30,108 @@
             <form>
                 <div class="form-group">
                     <label for="firstName">Imię</label>
-                    <input type="text" id="firstName" />
+                    <input type="text" id="firstName" required/>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Nazwisko</label>
-                    <input type="text" id="lastName" />
+                    <input type="text" id="lastName" required/>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" />
+                    <input type="email" id="email" required/>
                 </div>
                 <div class="form-group">
                     <label for="confirmEmail">Powtórz E-mail</label>
-                    <input type="email" id="confirmEmail" />
+                    <input type="email" id="confirmEmail" required/>
                 </div>
                 <div class="form-group">
                     <label for="phone">Telefon</label>
-                    <input type="text" id="phone" />
+                    <input type="text" id="phone"/>
                 </div>
                 <div class="form-group">
                     <label for="nip">NIP</label>
-                    <input type="text" id="nip" />
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" id="createAccount" />
-                    <label for="createAccount">Chcę od razu utworzyć konto</label>
+                    <input type="text" id="nip"/>
                 </div>
             </form>
         </div>
 
     </div>
-</div>
+</div> -->
+
+<div class="checkout-container">
+    <div class="payment-and-details">
+      <div class="payment-summary">
+        <div class="location-details">
+          <div><i class="fas fa-map-marker-alt"></i> WROCŁAW GALERIA MAGNOLIA • {{hall?.name}}</div>
+          <div><i class="fas fa-calendar-alt"></i> {{session?.date}}, {{session?.startTime}}</div>
+        </div>
+        <h2>{{movie?.title}}</h2>
+        <div *ngFor="let seat of selectedSeats" class="seat-item">
+          <div class="seat-details">
+            <span class="seat-row">Rząd {{getRow(seat)}}, Miejsce {{getSeatNumber(seat)}}</span>
+            <span class="seat-type">{{movie?.title}}</span>
+            <span class="seat-price">PLN {{movie?.price}}</span>
+          </div>
+        </div>
+        <div class="final-price">
+          RAZEM DO ZAPŁATY: <span>{{getTotal() }} PLN</span>
+        </div>
+        <div class="ticket" *ngIf="ticketGenerated">
+          <h3>TWÓJ KOD:</h3>
+          <div class="ticket-code">{{ ticketCode }}</div>
+        </div>
+      </div>
+      <div class="personal-details" >
+        <!-- *ngIf="showPersonalDetailsForm" -->
+        <h3>DANE OSOBOWE</h3>
+        <form [formGroup]="personalDetailsForm" (submit)="confirmAndGenerateTicket()">
+          <div class="form-group">
+            <label for="firstName">Imię*</label>
+            <input type="text" id="firstName" formControlName="firstName" required/>
+            <div *ngIf="personalDetailsForm.get('firstName')?.invalid && personalDetailsForm.get('firstName')?.touched">
+              <small *ngIf="personalDetailsForm.get('firstName')?.errors?.['required']">Imię jest wymagane</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nazwisko*</label>
+            <input type="text" id="lastName" formControlName="lastName" required/>
+            <div *ngIf="personalDetailsForm.get('lastName')?.invalid && personalDetailsForm.get('lastName')?.touched">
+              <small *ngIf="personalDetailsForm.get('lastName')?.errors?.['required']">Nazwisko jest wymagane</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail*</label>
+            <input type="email" id="email" formControlName="email" required/>
+            <div *ngIf="personalDetailsForm.get('email')?.invalid && personalDetailsForm.get('email')?.touched">
+              <small *ngIf="personalDetailsForm.get('email')?.errors?.['required']">E-mail jest wymagany</small>
+              <small *ngIf="personalDetailsForm.get('email')?.errors?.['email']">Nieprawidłowy format e-maila</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmEmail">Powtórz E-mail*</label>
+            <input type="email" id="confirmEmail" formControlName="confirmEmail" required/>
+            <div *ngIf="personalDetailsForm.get('confirmEmail')?.invalid && personalDetailsForm.get('confirmEmail')?.touched">
+              <small *ngIf="personalDetailsForm.get('confirmEmail')?.errors?.['required']">Potwierdzenie e-maila jest wymagane</small>
+              <small *ngIf="personalDetailsForm.get('confirmEmail')?.errors?.['email']">Nieprawidłowy format e-maila</small>
+              <small *ngIf="personalDetailsForm.errors?.['emailsMismatch']">E-maile nie są zgodne</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="text" id="phone" formControlName="phone"/>
+            <div *ngIf="personalDetailsForm.get('phone')?.invalid && personalDetailsForm.get('phone')?.touched">
+              <!-- <small *ngIf="personalDetailsForm.get('phone')?.errors?.['required']">Telefon jest wymagany</small> -->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nip">NIP</label>
+            <input type="text" id="nip" formControlName="nip"/>
+          </div>
+          <button type="submit" class="confirm-button">
+            {{ showPersonalDetailsForm ? 'ZATWIERDŹ I GENERUJ BILET' : 'ZATWIERDŹ' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

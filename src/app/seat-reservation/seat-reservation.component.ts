@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 
+
 interface Seat {
   number: number;
   isSelected: boolean;
@@ -29,11 +30,13 @@ export class SeatReservationComponent implements OnInit {
   seats: any[] = [];
   selectedSeats: number[] =[];
 
+
   constructor(
     private cinemaService: CinemaService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -48,6 +51,7 @@ export class SeatReservationComponent implements OnInit {
 
     const movies = await this.cinemaService.getMovies();
     this.movie = movies.find(m => m.id === this.session?.movieId);
+    console.log(this.movie)
 
     const halls = await this.cinemaService.getHalls();
     this.hall = halls.find(h => h.id === this.session?.hallId);
@@ -59,7 +63,6 @@ export class SeatReservationComponent implements OnInit {
   }
 
   generateSeatMap() {
-    console.log(this.hall?.capacity)
     if (!this.hall) return;
 
     const rows = Math.ceil(this.hall.capacity / 10);
@@ -87,13 +90,13 @@ export class SeatReservationComponent implements OnInit {
   proceedToCheckout(): void {
     console.log("Proceeding to checkout...");
     console.log(this.selectedSeats)
-    // save bookings and ticket
+    console.log(this.session)
     this.router.navigate(['/checkout'], { 
       queryParams: { 
         seats: JSON.stringify(this.selectedSeats), 
-        title: this.movie?.title, 
-        session: this.session,
-        hall: this.hall
+        movie: JSON.stringify(this.movie), 
+        session: JSON.stringify(this.session),
+        hall: JSON.stringify(this.hall)
       } 
     });
   }

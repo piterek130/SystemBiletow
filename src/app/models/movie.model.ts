@@ -9,6 +9,7 @@ export interface Movie {
   releaseDate: string;
   director: string;
   production: string;
+  price: number;
 }
 
 export interface RouterState {
