@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 // import { BrowserModule } from '@angular/platform-browser';
 import { CinemaService } from '../services/cinema.service';
 import { Movie, Booking, Hall, Session } from '../models/movie.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 interface Seat {
@@ -30,7 +31,8 @@ export class SeatReservationComponent implements OnInit {
 
   constructor(
     private cinemaService: CinemaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -86,5 +88,13 @@ export class SeatReservationComponent implements OnInit {
     console.log("Proceeding to checkout...");
     console.log(this.selectedSeats)
     // save bookings and ticket
+    this.router.navigate(['/checkout'], { 
+      queryParams: { 
+        seats: JSON.stringify(this.selectedSeats), 
+        title: this.movie?.title, 
+        session: this.session,
+        hall: this.hall
+      } 
+    });
   }
 }
