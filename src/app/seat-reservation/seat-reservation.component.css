@@ -1,0 +1,160 @@
+.movie-container {
+  background-color: #3d3d3d;
+  padding: 10px 10px;
+  border-radius: 5px;
+  color: rgb(63, 60, 60);
+  color: white;
+  width: 70%;
+}
+.movie-title {
+  font-size: 60px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-details > p {
+  font-size: 20px;
+  margin: 2px;
+  color: rgb(144, 142, 142);
+}
+.container {
+  perspective: 1000px;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.seats {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.seat {
+  background-color: rgb(81, 144, 215);
+  height: 35px;
+  width: 40px;
+  margin: 4px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.seat > p{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.seat.selected {
+  background-color: rgb(117, 21, 21);
+}
+
+.seat.occupied {
+  background-color: rgb(160, 156, 156);
+  cursor: not-allowed;
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 30px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 30px;
+}
+
+.seat:not(.occupied) {
+  cursor: pointer;
+}
+
+.showcase .seat:not(.occupied) {
+  cursor: default;
+}
+
+.showcase {
+  background-color: #3d3d3d;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row-label {
+  width: 30px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.screen {
+  background-color: rgb(63, 60, 60);
+  display: flex;
+  height: 40px;
+  width: 60%;
+  margin: 30px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
+
+.select-tickets-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(117, 21, 21);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.select-tickets-btn:hover {
+    background-color: rgb(82, 9, 9);
+}
