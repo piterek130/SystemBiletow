@@ -39,9 +39,9 @@ export class MovieDetailsComponent implements OnInit {
         this.cinemaService.getSessions().then(sessions => {
           this.sessions = sessions;
           this.filterSessions();
+        });
       });
     });
-  });
   }
 
     filterSessions() {
@@ -51,10 +51,4 @@ export class MovieDetailsComponent implements OnInit {
   goToSeatReservation(sessionId: number): void {
     this.router.navigate(['/seat-reservation', sessionId]);
   }
-
-
-
-  // goToSeatReservation(sessionId: number): void {
-  //   this.router.navigate(['/seat-reservation', sessionId], { queryParams: { movieId: this.movie?.id } });
-  // }
 }

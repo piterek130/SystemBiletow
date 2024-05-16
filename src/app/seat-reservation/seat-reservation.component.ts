@@ -44,7 +44,6 @@ export class SeatReservationComponent implements OnInit {
   async loadData(sessionId: number): Promise<void> {
     const sessions = await this.cinemaService.getSessions();
     this.session = sessions.find(s => s.id === sessionId);
-    console.log(sessionId)
 
     const movies = await this.cinemaService.getMovies();
     this.movie = movies.find(m => m.id === this.session?.movieId);
