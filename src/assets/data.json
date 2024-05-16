@@ -214,6 +214,33 @@
       "startTime": "20:00",
       "endTime": "22:00",
       "hallId": 2
+    },
+    {
+      "id": 3,
+      "movieId": 1,
+      "date": "2024-05-10",
+      "startTime": "20:00",
+      "endTime": "22:00",
+      "hallId": 2
+
+    },
+    {
+      "id": 4,
+      "movieId": 3,
+      "date": "2024-05-10",
+      "startTime": "20:00",
+      "endTime": "22:00",
+      "hallId": 1
+
+    },
+    {
+      "id": 5,
+      "movieId": 5,
+      "date": "2024-05-10",
+      "startTime": "20:00",
+      "endTime": "22:00",
+      "hallId": 2
+
     }
   ],
   "halls": [

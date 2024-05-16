@@ -68,14 +68,14 @@ export {
 
 @angular/localize/fesm2022/localize.mjs:
   (**
-   * @license Angular v17.3.8
+   * @license Angular v17.3.9
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/localize/fesm2022/init.mjs:
   (**
-   * @license Angular v17.3.8
+   * @license Angular v17.3.9
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
