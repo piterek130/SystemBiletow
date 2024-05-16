@@ -27,7 +27,7 @@ export interface Session {
 
 export interface Hall {
   id: number;
-  name: String;
+  name: string;
   capacity: number;
 }
 
@@ -36,7 +36,7 @@ export interface Booking {
   sessionId: number;
   seatId: number[];
   customerId: number;
-  bookingTime: String;
-  code: String;
-  status: String;
+  bookingTime: string;
+  code: string;
+  status: string;
 }

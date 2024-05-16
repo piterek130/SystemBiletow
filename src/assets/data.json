@@ -239,9 +239,9 @@
       "status" : "Ważny"
     },
     {
-      "id": 1,
-      "sessionId": 1,
-      "seatId": [23, 45],
+      "id": 2,
+      "sessionId": 2,
+      "seatId": [44, 45],
       "customerId": 501,
       "bookingTime": "2024-05-01T10:00:00Z",
       "code": "111111",

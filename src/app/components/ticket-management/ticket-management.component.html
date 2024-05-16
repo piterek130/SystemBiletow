@@ -1,5 +1,7 @@
 <div class="ticket-validator-container">
-  <p class="ticket-validator-container-title">Sprawdź bilet:</p>
+    <div class="ticket-validator-container-title">
+        <p >Sprawdź bilet:</p>
+    </div>
   <div class="input-group">
       <input type="text" placeholder="Wprowadź kod biletu" [(ngModel)]="bookingCode" class="ticket-input"/>
       <button (click)="verifyTicket(bookingCode)">Wyszukaj</button>

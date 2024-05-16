@@ -1,34 +1,20 @@
-<div class="movie-container">
-    <div class="movie-details">
-        <!-- <p class="hall-name">{{hall?.name}}</p> -->
-        <!-- <p class="movie-time">{{session?.startTime}} {{session?.date}}</p> -->
+<div class="tickets">
+    <div class="tickets-title">
+        <p>Moje bilety:</p>
     </div>
-    <!-- <p class="movie-title">{{movie?.title}}</p> -->
-</div>
-
-<div class="container">
-    <div class="screen">Ekran</div>
-    <!-- <div *ngFor="let row of seats" class="row">
-        <p class="row-label">{{ row.row }}</p>
-        <div class="seats">
-            <div *ngFor="let seat of row.seats"
-                [ngClass]="{'seat': true, 'selected': seat.isSelected, 'occupied': seat.isOccupied}"
-                (click)="selectSeat(seat)">
-                <p *ngIf="seat.isSelected">{{seat.number - (row.row -1 ) * 10}}</p>
+    <div *ngFor="let booking of bookingDetails">
+        <div class="ticket">
+            <h3>{{ booking.movieTitle }}</h3>
+            <p>Data: {{ booking.sessionDate}}, {{booking.sessionTime}}</p>
+            <div *ngIf="isDetailsVisible(booking.id)">
+                <p>Liczba miejsc: {{ booking.seatsCount}}</p>
+                <p>Numery miejsc: {{ booking.seatNumbers}}</p>
+                <p>Sala: {{ booking.hallName }}</p>
+                <p class="code">Kod: {{ booking.code }}</p>
             </div>
+            <button (click)="toggleDetails(booking.id)">
+                {{ isDetailsVisible(booking.id) ? 'Ukryj szczegóły' : 'Pokaż szczegóły' }}
+            </button>
         </div>
-    </div> -->
+    </div>
 </div>
-
-<ul class="showcase">
-    <li>
-        <div class="seat"></div><small>Wolne</small>
-    </li>
-    <li>
-        <div class="seat selected"></div><small>Wybrane</small>
-    </li>
-    <li>
-        <div class="seat occupied"></div><small>Zajęte</small>
-    </li>
-</ul>
-
