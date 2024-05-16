@@ -192,6 +192,7 @@
       "director": "Dorota Kobiela"
     }
   ],
+  
   "sessions": [
     {
       "id": 1,
@@ -200,6 +201,7 @@
       "startTime": "20:00",
       "endTime": "22:00",
       "hallId": 1
+
     },
     {
       "id": 2,
@@ -226,24 +228,21 @@
     {
       "id": 1,
       "sessionId": 1,
-      "hallId": 1,
-      "seatId": 3,
+      "seatId": [1, 2],
       "customerId": 501,
-      "bookingTime": "2024-05-01T10:00:00Z"
+      "bookingTime": "2024-05-01T10:00:00Z",
+      "code": "123456",
+      "status" : "Ważny"
     },
     {
-      "id": 2,
-      "sessionId": 1,
-      "hallId": 1,
-      "seatId": 4,
-      "customerId": 501,
-      "bookingTime": "2024-05-01T10:00:00Z"
-    }
-  ],
-  "tickets": [
-    {
       "id": 1,
-      "bookingsId": [1, 2]
+      "sessionId": 1,
+      "seatId": [23, 45],
+      "customerId": 501,
+      "bookingTime": "2024-05-01T10:00:00Z", 
+      "code": "111111",
+      "status" : "Ważny"
     }
   ]
 }
+
