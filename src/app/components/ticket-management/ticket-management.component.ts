@@ -5,6 +5,7 @@ import { NgIf } from '@angular/common';
 import { Movie, Booking, Hall, Session  } from '../../models/movie.model';
 
 import { NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-ticket-management',
   standalone: true,
