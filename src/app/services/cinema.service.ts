@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie, Session, Ticket, Hall, Booking  } from '../models/movie.model';
+import { Movie, Session, Hall, Booking  } from '../models/movie.model';
 import {BehaviorSubject, map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -58,12 +58,6 @@ export class CinemaService {
     const response = await fetch('/assets/data.json');
     const data = await response.json();
     return data.halls as Hall[];
-  }
-
-  async getTickets(): Promise<Ticket[]> {
-    const response = await fetch('/assets/data.json');
-    const data = await response.json();
-    return data.tickets as Ticket[];
   }
 
   async getBookings(): Promise<Booking[]> {

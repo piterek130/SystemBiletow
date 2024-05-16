@@ -71,7 +71,7 @@ export class SeatReservationComponent implements OnInit {
         row: rowIndex + 1,
         seats: Array.from({ length: 10 }, (_, seatIndex) => {
           const seatNumber = rowIndex * 10 + seatIndex + 1;
-          const isOccupied = this.bookings.some(b => b.seatId === seatNumber);
+          const isOccupied = this.bookings.some(b => b.seatId.includes(seatNumber));
           return { number: seatNumber, isOccupied };
         })
       };

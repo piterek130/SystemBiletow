@@ -37,7 +37,7 @@ export class CheckoutComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       confirmEmail: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      phone: [''],
       nip: ['']
     }, { validator: this.emailMatchValidator });
   }
@@ -67,7 +67,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  generateTicketCode(length: number = 16): string {
+  generateTicketCode(length: number = 6): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = '';
     for (let i = 0; i < length; i++) {
