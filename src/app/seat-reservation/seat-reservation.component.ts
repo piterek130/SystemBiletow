@@ -1,13 +1,9 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { NgFor, NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-// import { BrowserModule } from '@angular/platform-browser';
 import { CinemaService } from '../services/cinema.service';
 import { Movie, Booking, Hall, Session } from '../models/movie.model';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-
 
 interface Seat {
   number: number;
@@ -73,7 +69,7 @@ export class SeatReservationComponent implements OnInit {
         row: rowIndex + 1,
         seats: Array.from({ length: 10 }, (_, seatIndex) => {
           const seatNumber = rowIndex * 10 + seatIndex + 1;
-          const isOccupied = this.bookings.some(b => b.seatId === seatNumber);
+          const isOccupied = this.bookings.some(b => b.seatId.includes(seatNumber));
           return { number: seatNumber, isOccupied };
         })
       };
