@@ -9,6 +9,7 @@ import {SearchedMoviesComponent} from "./components/searched-movies/searched-mov
 import { SeatReservationComponent } from './seat-reservation/seat-reservation.component';
 import { MyTicketsComponent } from './my-tickets/my-tickets.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import {RegisterComponent} from "./components/register/register.component";
 
 
 export const routes: Routes = [
@@ -19,9 +20,10 @@ export const routes: Routes = [
   { path: 'ticket-management', component: TicketManagementComponent },
   { path: 'genre/:genreName', component: GenreListComponent },
   { path: 'search', component: SearchedMoviesComponent },
-  { path: 'seat-reservation', component: SeatReservationComponent },
+  { path: 'seat-reservation/:id', component: SeatReservationComponent },
   { path: 'my-tickets', component: MyTicketsComponent },
-  { path: 'checkout', component: CheckoutComponent}
+  { path: 'checkout', component: CheckoutComponent},
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

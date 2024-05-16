@@ -1,11 +1,11 @@
 
 <div class="container">
-  <div class="movie-card" *ngFor="let movie of movies">
-    <a [routerLink]="['/movie', movie.id]">
-      <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image">
-      <div class="movie-title">{{ movie.title }}</div>
-    </a>
-  </div>
+    <div class="movie-card" *ngFor="let movie of movies">
+      <a [routerLink]="['/movie', movie.id]">
+        <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image">
+        <div class="movie-title">{{ movie.title }}</div>
+      </a>
+    </div>
 </div>
 
 

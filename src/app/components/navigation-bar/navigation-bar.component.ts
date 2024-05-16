@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import { CinemaService } from '../../services/cinema.service';
 import { Movie } from '../../models/movie.model';
@@ -11,12 +11,14 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './navigation-bar.component.html',
-  styleUrl: './navigation-bar.component.css'
+  styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
   searchTerm: string = '';
+  isDropdownVisible: boolean = false;
 
-  constructor(private cinemaService: CinemaService, private router: Router) { }
+  constructor(private cinemaService: CinemaService, private router: Router) {
+  }
 
   async searchMovies(): Promise<void> {
     const movies = await this.cinemaService.getMovies();
@@ -34,8 +36,21 @@ export class NavigationBarComponent {
 
     console.log('Filtered movies:', filteredMovies);
 
-    this.router.navigate(['/search']);
+    await this.router.navigate(['/search']);
 
     this.searchTerm = '';
+  }
+
+  toggleDropdown(event: MouseEvent): void {
+    event.stopPropagation();
+    this.isDropdownVisible = !this.isDropdownVisible;
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: MouseEvent): void {
+    const dropdownContent = document.getElementById('dropdownContent');
+    if (dropdownContent && !dropdownContent.contains(event.target as Node)) {
+      this.isDropdownVisible = false;
+    }
   }
 }

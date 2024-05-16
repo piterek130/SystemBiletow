@@ -38,19 +38,21 @@ export class SeatReservationComponent implements OnInit {
 
   ) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const sessionId = +params.get('sessionId')!;
-      this.loadData(1);
+  async ngOnInit() {
+    this.route.paramMap.subscribe(async params => {
+      const sessionId = +params.get('id')!;
+      const movieId = +this.route.snapshot.queryParamMap.get('movieId')!;
+      this.loadData(sessionId, movieId);
+      console.log(movieId);
     });
   }
 
-  async loadData(sessionId: number): Promise<void> {
+  async loadData(sessionId: number, movieId: number): Promise<void> {
     const sessions = await this.cinemaService.getSessions();
     this.session = sessions.find(s => s.id === sessionId);
 
     const movies = await this.cinemaService.getMovies();
-    this.movie = movies.find(m => m.id === this.session?.movieId);
+    this.movie = movies.find(m => m.id === movieId);
     console.log(this.movie)
 
     const halls = await this.cinemaService.getHalls();
@@ -91,13 +93,13 @@ export class SeatReservationComponent implements OnInit {
     console.log("Proceeding to checkout...");
     console.log(this.selectedSeats)
     console.log(this.session)
-    this.router.navigate(['/checkout'], { 
-      queryParams: { 
-        seats: JSON.stringify(this.selectedSeats), 
-        movie: JSON.stringify(this.movie), 
+    this.router.navigate(['/checkout'], {
+      queryParams: {
+        seats: JSON.stringify(this.selectedSeats),
+        movie: JSON.stringify(this.movie),
         session: JSON.stringify(this.session),
         hall: JSON.stringify(this.hall)
-      } 
+      }
     });
   }
 }
