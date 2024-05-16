@@ -140,7 +140,8 @@
       "genres": ["Akcja"],
       "releaseDate": "24 maj 2024",
       "production": "USA, 2024",
-      "director": "GEORGE MILLER"
+      "director": "GEORGE MILLER",
+      "price": 19.99
     },
     {
       "id": 12,
@@ -152,7 +153,8 @@
       "genres": ["Komedia"],
       "releaseDate": "17 maj 2024",
       "production": "USA, 2023",
-      "director": "Richard Linklater"
+      "director": "Richard Linklater",
+      "price": 19.99
     },
     {
       "id": 13,
@@ -164,7 +166,8 @@
       "genres": ["Horror"],
       "releaseDate": "31 maj 2024",
       "production": "Wielka Brytania, 2024",
-      "director": "Rhys Frake-Waterfield"
+      "director": "Rhys Frake-Waterfield",
+      "price": 19.99
     },
     {
       "id": 14,
@@ -176,7 +179,8 @@
       "genres": ["Animowany"],
       "releaseDate": "24 maj 2024",
       "production": "USA, 2024",
-      "director": "Salvador Simó"
+      "director": "Salvador Simó",
+      "price": 19.99
     },
     {
       "id": 15,
@@ -192,7 +196,7 @@
       "director": "Dorota Kobiela"
     }
   ],
-  
+
   "sessions": [
     {
       "id": 1,
@@ -239,7 +243,7 @@
       "sessionId": 1,
       "seatId": [23, 45],
       "customerId": 501,
-      "bookingTime": "2024-05-01T10:00:00Z", 
+      "bookingTime": "2024-05-01T10:00:00Z",
       "code": "111111",
       "status" : "Ważny"
     }

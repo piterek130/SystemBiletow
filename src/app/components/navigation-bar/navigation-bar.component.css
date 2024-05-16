@@ -22,6 +22,7 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .navbar-brand {
@@ -50,12 +51,67 @@
   text-decoration: none;
   margin-left: 20px;
   font-size: 18px;
-}
-
-a:last-child{
-  margin-right: 50%;
+  cursor: pointer;
 }
 
 .navbar-link:hover {
   text-decoration: underline;
+}
+
+a:last-child {
+  margin-right: 50%;
+}
+
+.login-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 100%;
+  background-color: #282727;
+  border: 1px solid #454545;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1;
+  width: 200px;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content input[type="text"],
+.dropdown-content input[type="password"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.dropdown-content input[type="text"]::placeholder,
+.dropdown-content input[type="password"]::placeholder {
+  color: darkgray;
+}
+
+.dropdown-content button {
+  padding: 8px;
+  background-color: #454545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #5a5a5a;
 }

@@ -22,4 +22,14 @@
   </div>
 
   <iframe [src]="safeTrailerUrl" width="640" height="390" frameborder="0" allowfullscreen class="movie-trailer"></iframe>
+
+  <div class="session-title">Dostępne seanse</div>
+  <!-- Sesje filmu -->
+  <div class="sessions-container">
+    <div *ngFor="let session of sessions" class="session-card" (click)="goToSeatReservation(session.id)">
+      <div class="session-date">{{ session.date }}</div>
+      <div class="session-time">{{ session.startTime }} - {{ session.endTime }}</div>
+    </div>
+  </div>
 </div>
+

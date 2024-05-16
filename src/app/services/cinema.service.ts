@@ -31,6 +31,10 @@ export class CinemaService {
     const data = await response.json();
     return data.sessions as Session[];
   }
+  async getSessionsByMovieId(movieId: number): Promise<Session[]> {
+    const sessions = await this.getSessions();
+    return sessions.filter(session => session.movieId === movieId);
+  }
   async getMovieById(id: number): Promise<Movie> {
     const movies = await this.getMovies();
     const movie = movies.find(movie => movie.id === id);
