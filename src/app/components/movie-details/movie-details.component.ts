@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   movie: any;
   safeTrailerUrl: SafeResourceUrl | undefined;
   sessions: Session[] = [];
+  filteredSessions: Session[] = [];
   constructor(
     private route: ActivatedRoute,
     private cinemaService: CinemaService,
@@ -29,18 +30,25 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.sessions = await this.cinemaService.getSessions();
-    console.log(this.sessions)
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id')!;
       this.cinemaService.getMovieById(id).then(movie => {
         this.movie = movie;
         console.log(movie?.trailerUrl)
         this.safeTrailerUrl = this._sanitizer.bypassSecurityTrustResourceUrl(movie.trailerUrl);
+        this.cinemaService.getSessions().then(sessions => {
+          this.sessions = sessions;
+          this.filterSessions();
+        });
       });
     });
   }
+
+    filterSessions() {
+      this.filteredSessions = this.sessions.filter(session => session.movieId === this.movie.id);
+    }
+
   goToSeatReservation(sessionId: number): void {
-    this.router.navigate(['/seat-reservation', sessionId], { queryParams: { movieId: this.movie?.id } });
+    this.router.navigate(['/seat-reservation', sessionId]);
   }
 }
