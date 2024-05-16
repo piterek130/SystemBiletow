@@ -37,18 +37,16 @@ export class SeatReservationComponent implements OnInit {
   async ngOnInit() {
     this.route.paramMap.subscribe(async params => {
       const sessionId = +params.get('id')!;
-      const movieId = +this.route.snapshot.queryParamMap.get('movieId')!;
-      this.loadData(sessionId, movieId);
-      console.log(movieId);
+      await this.loadData(sessionId)
     });
   }
 
-  async loadData(sessionId: number, movieId: number): Promise<void> {
+  async loadData(sessionId: number): Promise<void> {
     const sessions = await this.cinemaService.getSessions();
     this.session = sessions.find(s => s.id === sessionId);
 
     const movies = await this.cinemaService.getMovies();
-    this.movie = movies.find(m => m.id === movieId);
+    this.movie = movies.find(m => m.id === this.session?.movieId);
     console.log(this.movie)
 
     const halls = await this.cinemaService.getHalls();
