@@ -10,7 +10,6 @@ export interface Movie {
   director: string;
   production: string;
   price: number;
-  price: number;
 }
 
 export interface RouterState {
@@ -23,7 +22,6 @@ export interface Session {
   date: string;
   startTime: string;
   endTime: string;
-  hallId: number;
   hallId: number;
 }
 
