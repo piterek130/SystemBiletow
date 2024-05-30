@@ -1,9 +1,0 @@
-<p>ticket-management works!</p>
-<div>
-  <h2>Zarządzanie biletami</h2>
-  <div *ngFor="let ticket of tickets">
-    <p>Bilet nr: {{ ticket.id }}</p>
-    <button (click)="verifyTicket(ticket.id)">Weryfikuj</button>
-    <button (click)="cancelTicket(ticket.id)">Anuluj</button>
-  </div>
-</div>
