@@ -1,0 +1,26 @@
+<div class="genre-list-container">
+  <div *ngFor="let movie of movies" class="movie-list-item">
+
+    <div class="movie-image">
+      <img [src]="movie.imageUrl" alt="{{ movie.title }}">
+    </div>
+    <div class="movie-details">
+      <h2>{{ movie.title }}</h2>
+      <p>{{ movie.description }}</p>
+      <a [routerLink]="['/movie', movie.id]">
+        <button class="btn-szczegoly">Szczegóły filmu</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!--      <div class="movie-genre">-->
+<!--        <a [routerLink]="['/genre', movie.genre]">{{ movie.genre }}</a>-->
+<!--      </div>-->
+<!--      <div class="additional-info">-->
+<!--        <p><strong>Premiera:</strong> {{ movie.releaseDate }}</p>-->
+<!--        <p><strong>Długość:</strong> {{ movie.duration }} min</p>-->
+<!--        <p><strong>Reżyseria:</strong> {{ movie.director }}</p>-->
+<!--        <p><strong>Produkcja:</strong> {{ movie.production }}</p>-->
+<!--      </div>-->

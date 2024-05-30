@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="navbar-brand-container">
+    <a routerLink="/repertoire" class="navbar-brand">TicketHub</a>
+  </div>
+  <div class="navbar-center">
+    <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchMovies()" placeholder="Search movies...">
+  </div>
+  <div class="navbar-links">
+    <div class="navbar-link login-dropdown" (click)="toggleDropdown($event)">
+      <a class="navbar-link">Login</a>
+      <div class="dropdown-content" [class.show]="isDropdownVisible" id="dropdownContent">
+        <form (click)="$event.stopPropagation()">
+          <input type="text" placeholder="Username">
+          <input type="password" placeholder="Password">
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <a routerLink="/register" class="navbar-link">Register</a>
+    <a routerLink="/my-tickets" class="navbar-link">Moje bilety</a>
+    <a routerLink="/ticket-management" class="navbar-link">Kontrola biletu</a>
+  </div>
+</nav>
