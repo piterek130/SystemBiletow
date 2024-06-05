@@ -79,12 +79,12 @@
 .session-card {
   background-color: #444;
   color: white;
-  padding: 20px; /* Zwiększenie paddingu, aby powiększyć obszar klikalny */
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 150px; /* Ustal szerokość dla lepszego wyglądu */
+  width: 150px;
 }
 
 .session-card {

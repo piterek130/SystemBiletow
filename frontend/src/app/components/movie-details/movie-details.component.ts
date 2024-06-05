@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
-import { CinemaService } from '../../services/cinema.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {CommonModule} from "@angular/common";
 import {Session} from "../../models/movie.model";
+import {MovieService} from "../../services/movie.service";
+import {HttpClientModule} from "@angular/common/http";
+import {SafePipe} from "../SafePipe";
 
 
 @Component({
@@ -11,32 +12,35 @@ import {Session} from "../../models/movie.model";
   standalone: true,
   imports: [
     RouterLink,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    SafePipe,
   ],
   templateUrl: './movie-details.component.html',
-  styleUrl: './movie-details.component.css'
+  styleUrl: './movie-details.component.css',
+  providers: [MovieService]
 })
 
 export class MovieDetailsComponent implements OnInit {
   movie: any;
-  safeTrailerUrl: SafeResourceUrl | undefined;
   sessions: Session[] = [];
   filteredSessions: Session[] = [];
+
   constructor(
     private route: ActivatedRoute,
-    private cinemaService: CinemaService,
-    private _sanitizer: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private movieService: MovieService
   ) {}
 
   async ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id')!;
-      this.cinemaService.getMovieById(id).then(movie => {
+      this.movieService.getMovie(id).subscribe(movie => {
+        console.log(id)
         this.movie = movie;
+        console.log(movie?.genres)
         console.log(movie?.trailerUrl)
-        this.safeTrailerUrl = this._sanitizer.bypassSecurityTrustResourceUrl(movie.trailerUrl);
-        this.cinemaService.getSessions().then(sessions => {
+        this.movieService.getSessions().subscribe(sessions => {
           this.sessions = sessions;
           this.filterSessions();
         });

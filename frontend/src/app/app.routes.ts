@@ -13,12 +13,12 @@ import {RegisterComponent} from "./components/register/register.component";
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/repertoire', pathMatch: 'full' },  // domyślne przekierowanie na repertuar
+  { path: '', redirectTo: '/repertoire', pathMatch: 'full' },
   { path: 'repertoire', component: RepertoireComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'ticket-management', component: TicketManagementComponent },
-  { path: 'genre/:genreName', component: GenreListComponent },
+  { path: 'genre/:genre', component: GenreListComponent },
   { path: 'search', component: SearchedMoviesComponent },
   { path: 'seat-reservation/:id', component: SeatReservationComponent },
   { path: 'my-tickets', component: MyTicketsComponent },

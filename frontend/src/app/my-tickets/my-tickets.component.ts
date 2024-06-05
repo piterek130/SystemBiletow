@@ -1,10 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { NgFor, NgClass, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { CinemaService } from '../services/cinema.service';
 import { Movie, Booking, Hall, Session } from '../models/movie.model';
-import { ActivatedRoute } from '@angular/router';
 
 export interface BookingDetails {
   id: number;
