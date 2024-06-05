@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CinemaService } from '../../services/cinema.service';
-import { Session } from '../../models/movie.model';
+import { CinemaService } from '../../../services/cinema.service';
+import { Session } from '../../../models/movie.model';
 import {CommonModule} from "@angular/common";
 
 @Component({

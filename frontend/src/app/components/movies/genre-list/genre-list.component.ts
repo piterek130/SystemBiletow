@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
-import { Movie } from '../../models/movie.model';
+import { Movie } from '../../../models/movie.model';
 import { CommonModule } from '@angular/common';
-import {MovieService} from "../../services/movie.service";
+import {MovieService} from "../../../services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({

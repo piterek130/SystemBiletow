@@ -1,4 +1,4 @@
-package com.example.backend.Login;
+package com.example.backend.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

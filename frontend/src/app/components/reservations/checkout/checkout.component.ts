@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie, Session, Hall } from '../../models/movie.model';
+import { Movie, Session, Hall } from '../../../models/movie.model';
 import { NgFor, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie, Session } from '../../models/movie.model';
+import { Movie, Session } from '../../../models/movie.model';
 import {CommonModule} from "@angular/common";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {RouterLink, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '../../../services/movie.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

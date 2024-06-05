@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {RouterLink, RouterModule} from '@angular/router';
-import { Movie } from '../../models/movie.model';
+import { Movie } from '../../../models/movie.model';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {CinemaService} from "../../services/cinema.service";
-import {MovieService} from "../../services/movie.service";
+import {CinemaService} from "../../../services/cinema.service";
+import {MovieService} from "../../../services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
