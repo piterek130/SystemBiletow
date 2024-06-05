@@ -1,12 +1,11 @@
 package com.example.backend.model;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -14,11 +13,14 @@ import lombok.Setter;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private int movieId;
-    private String date;
-    private String startTime;
-    private String endTime;
-    private int hallId;
+    private int id;
+    @OneToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
+    private LocalDate date;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    @ManyToOne
+    @JoinColumn(name = "hall_id")
+    private Hall hall;
 }
