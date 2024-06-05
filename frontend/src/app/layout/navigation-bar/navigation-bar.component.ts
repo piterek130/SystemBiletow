@@ -45,33 +45,20 @@ export class NavigationBarComponent {
   }
 
   searchMovies(): void {
-    // const movies = await this.cinemaService.getMovies();
-    // const filteredMovies = this.searchTerm ?
-    //   movies.filter((movie: Movie) => movie.title.toLowerCase().startsWith(this.searchTerm.toLowerCase())) :
-    //   movies;
-    this.movieService.getMovies().subscribe( movies => {
-      const filteredMovies = this.searchTerm ?
-          movies.filter((movie: Movie) => movie.title.toLowerCase().startsWith(this.searchTerm.toLowerCase())) :
-          movies;
-
-
-      if (filteredMovies.length === 0) {
-        alert('No movies found. Please try a different search term.');
-        this.searchTerm = '';
-        return;
-      }
-
-      console.log('Filtered movies:', filteredMovies);
-      this.movieService.changeMovies(filteredMovies);
-      console.log('Movies updated in BehaviorSubject');
-
-      setTimeout(() => {
-        this.router.navigate(['/search']).then(() => {
-          console.log('Navigated to /search');
-          this.searchTerm = '';
-        });
-      }, 1000);
-    });
+    this.movieService.searchMovies(this.searchTerm).subscribe(
+        (movies: Movie[]) => {
+          console.log('Found movies:', movies);
+          if (movies.length !== 0) {
+            this.router.navigate(['/search'], { state: { movies } });
+                  this.searchTerm = '';
+                  return;
+          }else {
+            alert('No movies found. Please try a different search term.');
+            return;
+          }
+        }
+    );
+    this.searchTerm = '';
   }
 
   toggleDropdown(event: MouseEvent): void {

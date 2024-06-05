@@ -27,4 +27,8 @@ public class MovieService {
   }
 
   public List<Session> getAllSessions() { return sessionRepository.findAll(); }
+
+  public List<Movie> searchMoviesByTitle(String title) {
+    return movieRepository.findByTitleStartingWithIgnoreCase(title);
+  }
 }

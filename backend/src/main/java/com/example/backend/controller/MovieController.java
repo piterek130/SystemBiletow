@@ -32,4 +32,9 @@ public class MovieController {
             .collect(Collectors.toList());
   }
 
+  @GetMapping("/search")
+  public List<Movie> searchMovies(@RequestParam String title) {
+    return movieService.searchMoviesByTitle(title);
+  }
+
 }
