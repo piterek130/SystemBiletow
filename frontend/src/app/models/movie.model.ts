@@ -36,7 +36,7 @@ export interface Booking {
   sessionId: number;
   seatId: number[];
   customerId: number;
-  bookingTime: string;
   code: string;
   status: string;
 }
+
