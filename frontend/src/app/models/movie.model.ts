@@ -5,16 +5,13 @@ export interface Movie {
   duration: number;
   imageUrl: string;
   trailerUrl: string;
-  genres: string[];
+  genres: string;
   releaseDate: string;
   director: string;
   production: string;
   price: number;
 }
 
-export interface RouterState {
-  movies?: Movie[];
-}
 
 export interface Session {
   id: number;

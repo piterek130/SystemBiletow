@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/movies")
@@ -23,4 +24,12 @@ public class MovieController {
   public Movie getMovieById(@PathVariable Long id) {
     return movieService.getMovieById(id);
   }
+
+  @GetMapping("/genre/{genre}")
+  public List<Movie> getMoviesByGenre(@PathVariable String genre) {
+    return movieService.getAllMovies().stream()
+            .filter(movie -> genre.equalsIgnoreCase(movie.getGenres()))
+            .collect(Collectors.toList());
+  }
+
 }

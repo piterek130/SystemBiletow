@@ -4,6 +4,8 @@ import { Movie } from '../../models/movie.model';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {CinemaService} from "../../services/cinema.service";
+import {MovieService} from "../../services/movie.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-searched-movies',
@@ -12,20 +14,23 @@ import {CinemaService} from "../../services/cinema.service";
     RouterLink,
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   templateUrl: './searched-movies.component.html',
-  styleUrl: './searched-movies.component.css'
+  styleUrl: './searched-movies.component.css',
+  providers: [MovieService]
 })
 export class SearchedMoviesComponent implements OnInit {
   movies: Movie[] = [];
 
-  constructor(private cinemaService: CinemaService) { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.cinemaService.currentMovies.subscribe(movies => {
+    console.log('SearchedMoviesComponent initialized');
+    this.movieService.currentMovies.subscribe(movies => {
+      console.log('SearchedMoviesComponent received movies:', movies);
       this.movies = movies;
-      console.log('Received movies:', this.movies);
     });
   }
 }

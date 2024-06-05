@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS movie (
   price DOUBLE,
   release_date VARCHAR(255),
   production VARCHAR(255),
-  director VARCHAR(255)
+  director VARCHAR(255),
+  genres VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS session (
@@ -36,8 +37,9 @@ CREATE TABLE IF NOT EXISTS booking (
   status VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS movie_genre (
-  movie_id BIGINT,
-  genre VARCHAR(255),
-  PRIMARY KEY (movie_id, genre)
-);
+CREATE TABLE IF NOT EXISTS users (
+                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                     username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    );
+
