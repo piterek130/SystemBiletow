@@ -2,7 +2,9 @@ package com.example.backend.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie {
 
   @Id
@@ -26,4 +30,5 @@ public class Movie {
   private String production;
   private String director;
   private String genres;
+
 }

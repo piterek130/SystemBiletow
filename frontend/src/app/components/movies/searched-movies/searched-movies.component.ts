@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RouterLink, RouterModule} from '@angular/router';
+import {Router, RouterLink, RouterModule} from '@angular/router';
 import { Movie } from '../../../models/movie.model';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {CinemaService} from "../../../services/cinema.service";
 import {MovieService} from "../../../services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -24,13 +23,13 @@ import {HttpClientModule} from "@angular/common/http";
 export class SearchedMoviesComponent implements OnInit {
   movies: Movie[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state && navigation.extras.state['movies']) {
+      this.movies = navigation.extras.state['movies'];
+    }
+  }
 
   ngOnInit(): void {
-    console.log('SearchedMoviesComponent initialized');
-    this.movieService.currentMovies.subscribe(movies => {
-      console.log('SearchedMoviesComponent received movies:', movies);
-      this.movies = movies;
-    });
   }
 }
