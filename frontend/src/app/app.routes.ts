@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RepertoireComponent } from './components/repertoire/repertoire.component';
-import { BookingComponent } from './components/booking/booking.component';
-import { TicketManagementComponent } from './components/ticket-management/ticket-management.component';
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component'; // Upewnij się, że zaimportujesz komponent
-import { GenreListComponent } from './components/genre-list/genre-list.component';
-import {SearchedMoviesComponent} from "./components/searched-movies/searched-movies.component";
-import { SeatReservationComponent } from './seat-reservation/seat-reservation.component';
-import { MyTicketsComponent } from './my-tickets/my-tickets.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import {RegisterComponent} from "./components/register/register.component";
+import { RepertoireComponent } from './components/movies/repertoire/repertoire.component';
+import { BookingComponent } from './components/reservations/booking/booking.component';
+import { TicketManagementComponent } from './components/reservations/ticket-management/ticket-management.component';
+import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
+import { GenreListComponent } from './components/movies/genre-list/genre-list.component';
+import {SearchedMoviesComponent} from "./components/movies/searched-movies/searched-movies.component";
+import { SeatReservationComponent } from './components/reservations/seat-reservation/seat-reservation.component';
+import { MyTicketsComponent } from './components/reservations/my-tickets/my-tickets.component';
+import { CheckoutComponent } from './components/reservations/checkout/checkout.component';
+import {RegisterComponent} from "./layout/register/register.component";
 
 
 export const routes: Routes = [

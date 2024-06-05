@@ -1,7 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { NgFor, NgClass, NgIf } from '@angular/common';
-import { CinemaService } from '../services/cinema.service';
-import { Movie, Booking, Hall, Session } from '../models/movie.model';
+import { CinemaService } from '../../../services/cinema.service';
+import { Movie, Booking, Hall, Session } from '../../../models/movie.model';
 
 export interface BookingDetails {
   id: number;

@@ -1,5 +1,5 @@
 package com.example.backend.controller;
-import com.example.backend.Login.User;
+import com.example.backend.model.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

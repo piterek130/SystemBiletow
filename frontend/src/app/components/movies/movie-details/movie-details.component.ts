@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {CommonModule} from "@angular/common";
-import {Session} from "../../models/movie.model";
-import {MovieService} from "../../services/movie.service";
+import {Session} from "../../../models/movie.model";
+import {MovieService} from "../../../services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 import {SafePipe} from "../SafePipe";
 
@@ -42,6 +42,7 @@ export class MovieDetailsComponent implements OnInit {
         console.log(movie?.trailerUrl)
         this.movieService.getSessions().subscribe(sessions => {
           this.sessions = sessions;
+          console.log(sessions);
           this.filterSessions();
         });
       });

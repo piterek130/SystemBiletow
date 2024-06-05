@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgFor } from '@angular/common';
-import { BookingService } from '../../services/booking.service';
-import { BookingDto } from '../../models/bookingDto.model';
+import { BookingService } from '../../../services/booking.service';
+import { BookingDto } from '../../../models/bookingDto.model';
 
 @Component({
   selector: 'app-ticket-management',

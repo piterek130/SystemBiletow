@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FormsModule} from "@angular/forms";
-import {RepertoireComponent} from "./components/repertoire/repertoire.component";
-import {NavigationBarComponent} from "./components/navigation-bar/navigation-bar.component";
-import { FooterComponent } from './components/footer/footer.component';
+import {RepertoireComponent} from "./components/movies/repertoire/repertoire.component";
+import {NavigationBarComponent} from "./layout/navigation-bar/navigation-bar.component";
+import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
