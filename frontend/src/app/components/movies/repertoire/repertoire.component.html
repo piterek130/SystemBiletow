@@ -1,3 +1,26 @@
+<div id="movieCarousel" #movieCarousel class="carousel slide album-carousel my-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div *ngFor="let movie of movies; let i = index" class="carousel-item" [class.active]="i == 0">
+            <div class="movie-details-carousel">
+                <div class="left-column">
+                    <div class="movie-image">
+                        <img [src]="movie.imageUrl" alt="{{ movie.title }}">
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="movie-info">
+                        <h2>{{ movie.title }}</h2>
+                        <p>{{ movie.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ol class="carousel-indicators">
+        <li *ngFor="let movie of movies; let i = index" [attr.data-bs-target]="'#movieCarousel'" [attr.data-bs-slide-to]="i" [class.active]="i == 0"></li>
+    </ol>
+</div>
+
 <div class="container">
     <div class="movie-card" *ngFor="let movie of movies">
       <a [routerLink]="['/movie', movie.id]">
