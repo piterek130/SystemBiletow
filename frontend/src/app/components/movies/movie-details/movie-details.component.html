@@ -23,7 +23,7 @@
 
   <div class="session-title">Dostępne seanse</div>
   <div class="sessions-container">
-    <div *ngFor="let session of filteredSessions" class="session-card" (click)="goToSeatReservation(session.id)">
+    <div *ngFor="let session of sessions" class="session-card" (click)="goToSeatReservation(session)">
       <div class="session-date">{{ session.date }}</div>
       <div class="session-time">{{ session.startTime }} - {{ session.endTime }}</div>
     </div>

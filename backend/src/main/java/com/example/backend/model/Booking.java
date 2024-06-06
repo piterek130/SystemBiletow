@@ -15,6 +15,9 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Transient
+    private Long sessionId;
+
     @ManyToOne
     @JoinColumn(name = "session_id")
     private Session session;

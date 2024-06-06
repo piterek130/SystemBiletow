@@ -32,14 +32,13 @@ CREATE TABLE IF NOT EXISTS booking (
   session_id BIGINT,
   seat_id VARCHAR(255),
   customer_email VARCHAR(255),
---   booking_time TIMESTAMP,
   code VARCHAR(255),
   status VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS users (
-                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                     username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
-    );
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
 

@@ -12,7 +12,6 @@ export interface Movie {
   price: number;
 }
 
-
 export interface Session {
   id: number;
   movieId: number;
@@ -29,11 +28,9 @@ export interface Hall {
 }
 
 export interface Booking {
-  id: number;
   sessionId: number;
   seatId: number[];
-  customerId: number;
+  customerEmail: string;
   code: string;
-  status: string;
 }
 

@@ -1,10 +1,10 @@
 <div class="container">
     <div class="movie-container">
         <div class="movie-details">
-            <p class="hall-name">{{hall?.name}}</p>
+            <p class="hall-name">{{session?.hallName}}</p>
             <p class="movie-time">{{session?.startTime}} {{session?.date}}</p>
         </div>
-        <p class="movie-title">{{movie?.title}}</p>
+        <p class="movie-title">{{session?.movieTitle}}</p>
     </div>
     <div class="screen">Ekran</div>
     <div *ngFor="let row of seats" class="row">

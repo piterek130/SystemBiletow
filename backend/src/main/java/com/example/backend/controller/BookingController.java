@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.dto.BookingDto;
+import com.example.backend.model.Booking;
 import com.example.backend.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,5 +36,14 @@ public class BookingController {
         }
     }
 
+    @PostMapping("/")
+    public ResponseEntity<BookingDto> addBooking(@RequestBody Booking booking) {
+        try {
+            BookingDto createdBooking = bookingService.addBooking(booking);
+            return new ResponseEntity<>(createdBooking, HttpStatus.CREATED);
+        } catch (ResponseStatusException e) {
+            return new ResponseEntity<>(null, e.getStatusCode());
+        }
+    }
 
 }
