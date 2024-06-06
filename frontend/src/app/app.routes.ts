@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'ticket-management', component: TicketManagementComponent },
   { path: 'genre/:genre', component: GenreListComponent },
   { path: 'search', component: SearchedMoviesComponent },
-  { path: 'seat-reservation/:id', component: SeatReservationComponent },
+  { path: 'seat-reservation', component: SeatReservationComponent },
   { path: 'my-tickets', component: MyTicketsComponent },
   { path: 'checkout', component: CheckoutComponent},
   { path: 'register', component: RegisterComponent }

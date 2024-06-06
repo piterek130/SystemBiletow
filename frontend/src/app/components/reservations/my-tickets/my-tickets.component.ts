@@ -37,27 +37,27 @@ export class MyTicketsComponent{
 
   async ngOnInit() {
     const bookings = await this.cinemaService.getBookings();
-    this.bookings = bookings.filter(b => b.customerId === 501);
+    this.bookings = bookings.filter(b => b.customerEmail == "123");
     this.sessions = await this.cinemaService.getSessions();
     this.movies = await this.cinemaService.getMovies();
     this.halls = await this.cinemaService.getHalls();
 
-    this.bookingDetails = bookings.filter(b => b.customerId === 501).map(booking => {
-      const session = this.sessions.find(s => s.id === booking.sessionId);
-      const movie = this.movies.find(m => m.id === session?.movieId);
-      const hall = this.halls.find(h => h.id === session?.hallId);
-      return {
-        id: booking.id,
-        sessionId: booking.sessionId,
-        movieTitle: movie ? movie.title : 'Unknown',
-        sessionDate: session ? session.date : 'Unknown',
-        sessionTime: session ? session.startTime : 'Unknown',
-        hallName: hall ? hall.name : 'Unknown',
-        seatsCount: booking.seatId.length,
-        seatNumbers: booking.seatId,
-        code: booking.code
-      };
-    });
+    // this.bookingDetails = bookings.filter(b => b.customerEmail === "501").map(booking => {
+    //   const session = this.sessions.find(s => s.id === booking.sessionId);
+    //   const movie = this.movies.find(m => m.id === session?.movieId);
+    //   const hall = this.halls.find(h => h.id === session?.hallId);
+    //   return {
+    //     // id: booking.id,
+    //     sessionId: booking.sessionId,
+    //     movieTitle: movie ? movie.title : 'Unknown',
+    //     sessionDate: session ? session.date : 'Unknown',
+    //     sessionTime: session ? session.startTime : 'Unknown',
+    //     hallName: hall ? hall.name : 'Unknown',
+    //     seatsCount: booking.seatId.length,
+    //     seatNumbers: booking.seatId,
+    //     code: booking.code
+    //   };
+    // });
   }
 
   toggleDetails(bookingId: number): void {

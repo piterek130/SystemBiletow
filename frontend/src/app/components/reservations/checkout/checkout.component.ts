@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie, Session, Hall } from '../../../models/movie.model';
 import { NgFor, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { SessionDto } from '../../../models/sessionDto.model';
+import { BookingService } from '../../../services/booking.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Booking } from '../../../models/movie.model';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [NgFor, NgIf, ReactiveFormsModule],
+  imports: [NgFor, NgIf, ReactiveFormsModule, HttpClientModule],
   templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+  styleUrl: './checkout.component.css',
+  providers: [BookingService]
 })
 export class CheckoutComponent implements OnInit {
   selectedSeats: number[] = [];
-  session: Session | undefined;
-  hall: Hall | undefined;
-  movie: Movie | undefined;
+  session: SessionDto | undefined;
   showPersonalDetailsForm: boolean = false;
   personalDetailsForm: FormGroup;
 
@@ -31,7 +33,7 @@ export class CheckoutComponent implements OnInit {
   ticketGenerated: boolean = false;
   ticketCode: string = '';
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private bookingService: BookingService) {
     this.personalDetailsForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -46,11 +48,6 @@ export class CheckoutComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.selectedSeats = JSON.parse(params['seats']);
       this.session = JSON.parse(params['session']);
-      this.hall = JSON.parse(params['hall']);
-      this.movie = JSON.parse(params['movie']);
-      console.log(this.session);
-      
-      console.log(this.selectedSeats, this.session, this.hall);
     });
   }
 
@@ -63,7 +60,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   getTotal(): string {
-    return (this.selectedSeats.length * (this.movie?.price || 0)).toFixed(2);
+    return (this.selectedSeats.length * (this.session?.ticketPrice || 0)).toFixed(2);
 
   }
 
@@ -86,10 +83,25 @@ export class CheckoutComponent implements OnInit {
     if (this.personalDetailsForm.invalid) {
       return;
     }
-    console.log("Confirming and generating ticket...");
-    console.log(this.personalDetails);
     this.ticketCode = this.generateTicketCode();
     this.ticketGenerated = true;
+    const booking: Booking = {
+      sessionId: this.session?.id ?? 0,
+      seatId: this.selectedSeats,
+      customerEmail: this.personalDetailsForm.get('email')?.value,
+      code: this.ticketCode,
+    };
+    console.log(booking)
+
+    this.bookingService.addBooking(booking).subscribe(
+      (response) => {
+        alert('Bilet został zarezerwowany')
+      },
+      (error) => {
+        alert('Podczas rezerwacji wystąpił błąd')
+      }
+    );
+
   }
 
   emailMatchValidator(group: FormGroup): any {

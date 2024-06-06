@@ -5,22 +5,38 @@ import com.example.backend.model.Booking;
 import com.example.backend.model.BookingStatus;
 import com.example.backend.model.Session;
 import com.example.backend.repository.BookingRepository;
+import com.example.backend.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
+    @Autowired
+    private SessionRepository sessionRepository;
+
     public BookingDto getBookingByCode(String code) {
         Booking booking = bookingRepository.findByCode(code)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Booking with code " + code + " not found"));
         return toDto(booking);
+    }
+
+    public List<Integer> getBookedSeats(int sessionId) {
+        List<Integer> bookedSeats = new ArrayList<>();
+        List<Booking> bookings = bookingRepository.findBookingsBySession_Id(sessionId);
+
+        for(Booking booking: bookings) {
+            bookedSeats.addAll(booking.getSeatId());
+        }
+        return bookedSeats;
     }
     public BookingDto toDto(Booking booking) {
 
@@ -83,4 +99,18 @@ public class BookingService {
         return booking.getStatus() == BookingStatus.WAŻNY;
     }
 
+    public BookingDto addBooking(Booking booking) {
+        booking.setStatus(BookingStatus.NOWY);
+        try {
+            if (booking.getSession() == null && booking.getSessionId() != null) {
+                Session session = sessionRepository.findById(booking.getSessionId())
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Session not found"));
+                booking.setSession(session);
+            }
+            Booking savedBooking = bookingRepository.save(booking);
+            return toDto(savedBooking);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error creating booking", e);
+        }
+    }
 }

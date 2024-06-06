@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {CommonModule} from "@angular/common";
-import {Session} from "../../../models/movie.model";
 import {MovieService} from "../../../services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 import {SafePipe} from "../SafePipe";
+import { SessionService } from '../../../services/session.service';
+import { SessionDto } from '../../../models/sessionDto.model';
 
 
 @Component({
@@ -18,18 +19,18 @@ import {SafePipe} from "../SafePipe";
   ],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css',
-  providers: [MovieService]
+  providers: [MovieService, SessionService]
 })
 
 export class MovieDetailsComponent implements OnInit {
   movie: any;
-  sessions: Session[] = [];
-  filteredSessions: Session[] = [];
+  sessions: SessionDto[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private sessionService: SessionService
   ) {}
 
   async ngOnInit() {
@@ -40,20 +41,15 @@ export class MovieDetailsComponent implements OnInit {
         this.movie = movie;
         console.log(movie?.genres)
         console.log(movie?.trailerUrl)
-        this.movieService.getSessions().subscribe(sessions => {
+        this.sessionService.getSessionsByMovieID(this.movie.id).subscribe(sessions => {
           this.sessions = sessions;
           console.log(sessions);
-          this.filterSessions();
         });
       });
     });
   }
 
-    filterSessions() {
-      this.filteredSessions = this.sessions.filter(session => session.movieId === this.movie.id);
-    }
-
-  goToSeatReservation(sessionId: number): void {
-    this.router.navigate(['/seat-reservation', sessionId]);
+  goToSeatReservation(session: SessionDto): void {
+    this.router.navigate(['/seat-reservation'], { queryParams: { session: JSON.stringify(session) } });
   }
 }
