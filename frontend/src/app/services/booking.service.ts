@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { BookingDto } from '../models/bookingDto.model';
 import { catchError } from 'rxjs/operators';
+import { Booking } from '../models/movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,23 @@ export class BookingService {
 
   cancelBooking(id: number): Observable<BookingDto> {
     return this.http.put<BookingDto>(`${this.baseUrl}/${id}/cancel`, null).pipe(
-        catchError(this.handleError));  
-}
+      catchError(this.handleError));
+  }
 
-    private handleError(error: HttpErrorResponse) {
-        if (error.status === 404) {
-          return throwError('Booking not found');
-        } else if (error.status === 406) { 
-          return throwError('Booking is not valid');
-        } else {
-          return throwError('An unexpected error occurred');
-        }
-      }
+  addBooking(booking: Booking): Observable<Booking> {
+    console.log('Adding booking', booking);
+    return this.http.post<Booking>(`${this.baseUrl}/`, booking).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 404) {
+      return throwError('Booking not found');
+    } else if (error.status === 406) {
+      return throwError('Booking is not valid');
+    } else {
+      return throwError('An unexpected error occurred');
+    }
+  }
 }

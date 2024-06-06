@@ -3,12 +3,14 @@ package com.example.backend;
 import com.example.backend.dto.BookingDto;
 import com.example.backend.model.*;
 import com.example.backend.repository.BookingRepository;
+import com.example.backend.repository.SessionRepository;
 import com.example.backend.service.BookingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
@@ -24,6 +26,10 @@ public class BookingServiceTest {
     @Mock
     private BookingRepository bookingRepository;
 
+    @Mock
+    private SessionRepository sessionRepository;
+
+    @Spy
     @InjectMocks
     private BookingService bookingService;
 
@@ -97,6 +103,41 @@ public class BookingServiceTest {
         assertEquals(BookingStatus.NIEWAŻNY, updatedBooking.getStatus());
         verify(bookingRepository, times(1)).save(booking);
     }
+    @Test
+    public void testAddBooking_SessionExists() {
+        Booking booking = createTestBooking();
+        booking.setSession(null);
+        booking.setSessionId(1L);
+
+        Session session = createTestSession();
+        session.setId(1);
+
+        when(sessionRepository.findById(1L)).thenReturn(Optional.of(session));
+        when(bookingRepository.save(booking)).thenReturn(booking);
+
+        BookingDto bookingDto = bookingService.addBooking(booking);
+
+        assertNotNull(bookingDto);
+        assertEquals(booking.getId(), bookingDto.getId());
+        verify(sessionRepository, times(1)).findById(1L);
+        verify(bookingRepository, times(1)).save(booking);
+    }
+
+    @Test
+    public void testAddBooking_SessionNotFound() {
+        Booking booking = createTestBooking();
+        booking.setSession(null);
+        booking.setSessionId(1L);
+
+        when(sessionRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(ResponseStatusException.class, () -> {
+            bookingService.addBooking(booking);
+        });
+
+        verify(sessionRepository, times(1)).findById(1L);
+        verify(bookingRepository, times(0)).save(booking);
+    }
 
     private Booking createTestBooking() {
         Booking booking = new Booking();
@@ -122,4 +163,22 @@ public class BookingServiceTest {
 
         return booking;
     }
+    private Session createTestSession() {
+        Movie movie = new Movie();
+        movie.setTitle("Film");
+
+        Hall hall = new Hall();
+        hall.setName("Sala");
+
+        Session session = new Session();
+        session.setId(1);
+        session.setMovie(movie);
+        session.setHall(hall);
+        session.setDate(LocalDate.now().plusDays(1));
+        session.setStartTime(LocalTime.now().plusHours(1));
+        session.setEndTime(LocalTime.now().plusHours(3));
+
+        return session;
+    }
+
 }

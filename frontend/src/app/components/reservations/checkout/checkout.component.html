@@ -2,15 +2,15 @@
     <div class="payment-and-details">
       <div class="payment-summary">
         <div class="location-details">
-          <div><i class="fas fa-map-marker-alt"></i> WROCŁAW GALERIA MAGNOLIA • {{hall?.name}}</div>
+          <div><i class="fas fa-map-marker-alt"></i> WROCŁAW GALERIA MAGNOLIA • {{session?.hallName}}</div>
           <div><i class="fas fa-calendar-alt"></i> {{session?.date}}, {{session?.startTime}}</div>
         </div>
-        <h2>{{movie?.title}}</h2>
+        <h2>{{session?.movieTitle}}</h2>
         <div *ngFor="let seat of selectedSeats" class="seat-item">
           <div class="seat-details">
             <span class="seat-row">Rząd {{getRow(seat)}}, Miejsce {{getSeatNumber(seat)}}</span>
-            <span class="seat-type">{{movie?.title}}</span>
-            <span class="seat-price">{{movie?.price}} PLN</span>
+            <span class="seat-type">{{session?.movieTitle}}</span>
+            <span class="seat-price">{{session?.ticketPrice}} PLN</span>
           </div>
         </div>
         <div class="final-price">

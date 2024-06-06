@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgFor, NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CinemaService } from '../../../services/cinema.service';
-import { Movie, Booking, Hall, Session } from '../../../models/movie.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionDto } from '../../../models/sessionDto.model';
 
 interface Seat {
   number: number;
@@ -19,10 +19,7 @@ interface Seat {
   styleUrl: './seat-reservation.component.css'
 })
 export class SeatReservationComponent implements OnInit {
-  session: Session | undefined;
-  movie: Movie | undefined;
-  hall: Hall | undefined;
-  bookings: Booking[] = [];
+  session: SessionDto | undefined;
   seats: any[] = [];
   selectedSeats: number[] =[];
 
@@ -34,40 +31,33 @@ export class SeatReservationComponent implements OnInit {
 
   ) {}
 
-  async ngOnInit() {
-    this.route.paramMap.subscribe(async params => {
-      const sessionId = +params.get('id')!;
-      await this.loadData(sessionId)
+  ngOnInit(){
+    this.route.queryParamMap.subscribe(params => {
+      const sessionParam = params.get('session');
+      if (sessionParam) {
+        try {
+          this.session = JSON.parse(sessionParam);
+        } catch (e) {
+          console.error('Invalid session data', e);
+          this.router.navigate(['/movies']);
+        }
+      } else {
+        this.router.navigate(['/movies']);
+      }
     });
-  }
-
-  async loadData(sessionId: number): Promise<void> {
-    const sessions = await this.cinemaService.getSessions();
-    this.session = sessions.find(s => s.id === sessionId);
-
-    const movies = await this.cinemaService.getMovies();
-    this.movie = movies.find(m => m.id === this.session?.movieId);
-    console.log(this.movie)
-
-    const halls = await this.cinemaService.getHalls();
-    this.hall = halls.find(h => h.id === this.session?.hallId);
-
-    const bookings = await this.cinemaService.getBookings();
-    this.bookings = bookings.filter(b => b.sessionId === sessionId);
-
     this.generateSeatMap();
   }
 
   generateSeatMap() {
-    if (!this.hall) return;
+    if (!this.session) return;
 
-    const rows = Math.ceil(this.hall.capacity / 10);
+    const rows = Math.ceil(this.session?.hallCapacity / 10);
     this.seats = Array.from({ length: rows }, (_, rowIndex) => {
       return {
         row: rowIndex + 1,
         seats: Array.from({ length: 10 }, (_, seatIndex) => {
           const seatNumber = rowIndex * 10 + seatIndex + 1;
-          const isOccupied = this.bookings.some(b => b.seatId.includes(seatNumber));
+          const isOccupied = this.session?.bookedSeats.includes(seatNumber);
           return { number: seatNumber, isOccupied };
         })
       };
@@ -90,9 +80,7 @@ export class SeatReservationComponent implements OnInit {
     this.router.navigate(['/checkout'], {
       queryParams: {
         seats: JSON.stringify(this.selectedSeats),
-        movie: JSON.stringify(this.movie),
         session: JSON.stringify(this.session),
-        hall: JSON.stringify(this.hall)
       }
     });
   }

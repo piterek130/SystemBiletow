@@ -16,8 +16,8 @@ INSERT INTO movie (id, title, description, duration, image_url, trailer_url, pri
   (15, 'CHŁOPI', '„CHŁOPI” zostaną zrealizowani w technice animacji malarskiej, która podbiła serca fanów na całym świecie przy poprzedniej produkcji studia – filmie „Twój Vincent”. Historia filmu oparta jest na powieści Władysława Reymonta, który w 1924 roku otrzymał Literacką Nagrodę Nobla wyprzedzając Thomasa Manna, Georga Bernarda Shawa i Thomasa Hardyego.', 116, 'https://multikino.pl/-/media/images/film-and-events/2023/chlopi/chlopi_plakat-oficjalny_cut.jpg', 'https://www.youtube.com/embed/rILKSimhfA4?si=lluja7t2gzgv97Dy', 19.99, '13 paź 2023', 'Polska, 2021', 'Dorota Kobiela', 'Dramat');
 
 INSERT INTO session (id, movie_id, date, start_time, end_time, hall_id) VALUES
-  (1, 1, '2024-06-05', '01:00:00', '02:00:00', 1),
-  (2, 2, '2024-05-10', '20:00:00', '22:00:00', 2),
+  (1, 1, '2024-06-06', '01:00:00', '22:00:00', 1),
+  (2, 2, '2024-06-06', '20:00:00', '22:00:00', 2),
   (3, 1, '2024-05-10', '20:00:00', '22:00:00', 2),
   (4, 3, '2024-05-10', '20:00:00', '22:00:00', 1),
   (5, 5, '2024-05-10', '20:00:00', '22:00:00', 2);
@@ -25,10 +25,10 @@ INSERT INTO session (id, movie_id, date, start_time, end_time, hall_id) VALUES
 INSERT INTO hall (id, name, capacity) VALUES
   (1, 'Main Hall', 100),
   (2, 'VIP Hall', 50);
---
-INSERT INTO booking (id, session_id, seat_id, customer_email, code, status) VALUES
-  (1, 1, '1,2','customer1@example.com', '123456', 'NOWY'),
-  (2, 2, '44,45','customer2@example.com', '111111', 'NOWY');
+
+INSERT INTO booking (session_id, seat_id, customer_email, code, status) VALUES
+  (1, '1,2','customer1@example.com', '123456', 'NOWY'),
+  (2, '44,45','customer2@example.com', '111111', 'NOWY');
 
 
 INSERT INTO users (username, password) VALUES
